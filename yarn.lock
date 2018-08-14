@@ -9,9 +9,9 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/chai@4.1.4":
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.4.tgz#5ca073b330d90b4066d6ce18f60d57f2084ce8ca"
+"@types/chai@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-2.0.1.tgz#c87659db9ebf551c4ea97dc0028bd94b4e7fb7f9"
 
 "@types/connect@*":
   version "3.4.32"
