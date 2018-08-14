@@ -1,0 +1,35 @@
+{
+  "name": "node-ts-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node ./lib/server.ts",
+    "dev:watch": "ts-node-dev --respawn --transpileOnly ./lib/server.ts",
+    "start": "nodemon ./dist/server.js",
+    "prod": "npm run build && npm run start",
+    "test": "mocha --watch-extensions ts -w -r ts-node/register lib/**/*.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8",
+    "nodemon": "^1.18.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/express": "^4.16.0",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0",
+    "ts-node": "^7.0.1",
+    "ts-node-dev": "^1.0.0-pre.26",
+    "typescript": "^3.0.1",
+    "typings": "^2.1.1"
+  }
+}
