@@ -2,32 +2,76 @@ import * as TypeMoq from 'typemoq';
 import StringHelper from './../string.helper';
 import {expect} from "chai";
 import IValidatorHelper from '../validator.interface';
+import IBob from '../result.interface';
 
 describe('StringHelper', () => {
 	describe('format', () => {
 
-		let mock: TypeMoq.IMock<IValidatorHelper> = TypeMoq.Mock.ofType<IValidatorHelper>();
-		let stringHelper: StringHelper = new StringHelper(mock.target);
+		let validatorHelperMock: TypeMoq.IMock<IValidatorHelper> = TypeMoq.Mock.ofType<IValidatorHelper>();
+		let sut: StringHelper = new StringHelper(validatorHelperMock.object);
+
 
 		it('should return foo', () => {
-			let actual;
-			const expected = 'foo';
+			// Setup
+			const mockedBob : IBob = {
+				name:'Bob',
+				nestedObj: {
+					myArray: [1, 2, 3]
+				}};
 
-			mock.setup(x => x.validate()).returns(() => true);
+			const expected : IBob = {
+				name:'Bob',
+				nestedObj: {
+					myArray: [1, 2, 3]
+				}};
 
-			actual = stringHelper.format();
-			expect(actual).to.equal(expected);
+			// Action
+			validatorHelperMock
+					.setup(x => {
+						x.validate(TypeMoq.It.isValue('hello'))
+					})
+					.returns(() => {
+						return false;
+					});
+
+			validatorHelperMock
+					.setup(x => {
+						x.bob()
+					}).returns(()=> mockedBob );
+
+			let actual = sut.format('Hello');
+
+			// Assert
+			expect(actual).to.deep.equal(expected);
+			expect(actual.name).to.equal('Bob');
 		});
 
-		it('should return bob', () => {
-			let actual;
-			const expected = 'bob';
-
-			mock.setup(x => x.validate()).returns(() => true);
-
-			actual = stringHelper.format();
-			expect(actual).to.equal(expected);
-		});
-
+		// it('should return foo', () => {
+		// 	let actual;
+		// 	const expected = 'foo';
+		//
+		// 	validatorHelperMock
+		// 		.setup(x => {
+		// 			x.validate(TypeMoq.It.isValue('hello'))
+		// 		})
+		// 		.returns(() => {
+		// 			return false;
+		// 		});
+		//
+		// 	validatorHelperMock
+		// 		.setup(x => {
+		// 			x.bob()
+		// 		});
+		//
+		// 	actual = sut.format("hello");
+		//
+		// 	expect(actual).to.equal(expected);
+		//
+		// 	validatorHelperMock
+		// 		.verify(x => {
+		// 				x.validate('hello');
+		// 			},
+		// 			TypeMoq.Times.atLeast(1));
+		// });
 	});
 });

@@ -1,5 +1,8 @@
+import IBob from './result.interface';
+
 interface IValidatorHelper {
-	validate():boolean;
+	validate(value: string):boolean;
+	bob() : IBob;
 }
 
 export default IValidatorHelper;

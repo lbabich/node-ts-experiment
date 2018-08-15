@@ -1,23 +1,17 @@
 import ValidatorInteface from './validator.interface'
+import IBob from './result.interface';
 
-class StringHelper
-{
+class StringHelper {
 	private _validator: ValidatorInteface;
 
-		constructor(private validator: ValidatorInteface) {
+	constructor(private validator: ValidatorInteface)
+	{
 		this._validator = validator;
 	}
 
-	public format() : string
+	public format(value: string): IBob
 	{
-		if (this._validator.validate())
-		{
-			return 'bob';
-		}
-		else
-		{
-			return 'foo';
-		}
+		return this._validator.bob();
 	}
 }
 
