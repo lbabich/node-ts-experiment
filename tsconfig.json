@@ -12,10 +12,10 @@
     "emitDecoratorMetadata": true
   },
   "include": [
-    "src/**/*.ts",
-    "node_modules/@types/mocha/index.d.ts"
+    "./src/**/*.ts",
+    "./node_modules/@types/mocha/index.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "./node_modules"
   ]
 }

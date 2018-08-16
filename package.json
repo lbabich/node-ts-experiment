@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "predev": "tslint -c ./tslint.json './src/**/*.ts'",
+    "build": "tsc --p styleguide-reference/tsconfig.json",
+    "predev": "tslint -c ./styleguide-reference/tslint.json './src/**/*.ts'",
     "dev": "ts-node ./src/server.ts",
     "dev:watch": "ts-node-dev --respawn --transpileOnly ./src/**/*.ts",
     "start": "nodemon ./dist/server.js",
