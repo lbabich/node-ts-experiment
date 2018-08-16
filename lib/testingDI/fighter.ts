@@ -1,24 +1,15 @@
-import {injectable, inject} from "inversify";
-import IFighterInterface from './interfaces/fighter.interface';
-import IWarrior from './interfaces/warrior.interface';
+import {inject, injectable} from 'inversify';
+import {IFighterInterface} from './interfaces/fighter.interface';
 import {TYPES} from './interfaces/types';
+import {IWarrior} from './interfaces/warrior.interface';
 
 @injectable()
-class Fighter implements IFighterInterface {
+export class Fighter implements IFighterInterface {
 
-	constructor(
-		@inject(TYPES.Warrior) private _warriorService: IWarrior
-	)
-	{
-		console.log(this._warriorService);
+	constructor(@inject(TYPES.Warrior) private _warriorService: IWarrior) {
 	}
 
-	public greet(): string
-	{
-		const greeting = `Fighter: ${this._warriorService.getWarriorType()}, says hello`;
-		console.log(greeting);
-		return greeting;
+	public greet(): string {
+		return `Fighter: ${this._warriorService.getWarriorType()}, says hello`;
 	}
 }
-
-export default Fighter;

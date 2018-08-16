@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "predev": "tslint -c ./tslint.json './lib/**/*.ts'",
     "dev": "ts-node ./lib/server.ts",
     "dev:watch": "ts-node-dev --respawn --transpileOnly ./lib/server.ts",
     "start": "nodemon ./dist/server.js",
@@ -16,9 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "mongoose": "^5.2.8",
-    "nodemon": "^1.18.3"
+    "express": "^4.16.3"
   },
   "devDependencies": {
     "@types/chai": "4.0.0",
@@ -32,9 +31,7 @@
     "supertest": "3.1.0",
     "ts-node": "7.0.1",
     "ts-node-dev": "1.0.0-pre.26",
-    "tslint": "^5.11.0",
     "typemoq": "^2.1.0",
-    "typescript": "3.0.1",
-    "typings": "2.1.1"
+    "typescript": "3.0.1"
   }
 }

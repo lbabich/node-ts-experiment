@@ -1,3 +1,3 @@
-export default interface IFighterInterface {
+export interface IFighterInterface {
 	greet(): string;
 }

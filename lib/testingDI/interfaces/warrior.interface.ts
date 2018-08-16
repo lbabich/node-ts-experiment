@@ -1,5 +1,5 @@
-
-export default interface IWarrior {
+export interface IWarrior {
 	setWarriorType(value: string);
+
 	getWarriorType(): string;
 }

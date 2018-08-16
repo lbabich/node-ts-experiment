@@ -1,6 +1,4 @@
-const TYPES = {
+export const TYPES = {
+	Fighter: Symbol.for('Fighter'),
 	Warrior: Symbol.for('Warrior'),
-	Fighter: Symbol.for('Fighter')
 };
-
-export { TYPES }

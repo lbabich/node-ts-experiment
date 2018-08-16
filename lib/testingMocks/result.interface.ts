@@ -1,7 +1,4 @@
-interface IBob
-{
+export interface IBob {
 	name: string;
 	nestedObj: any;
 }
-
-export default  IBob;

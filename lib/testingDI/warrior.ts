@@ -1,25 +1,20 @@
-import { injectable } from "inversify";
-import IWarrior from './interfaces/warrior.interface';
+import {injectable} from 'inversify';
+import {IWarrior} from './interfaces/warrior.interface';
 
 @injectable()
-class Warrior implements IWarrior {
+export class Warrior implements IWarrior {
 
 	private _warriorType: string;
 
-	constructor()
-	{
+	constructor() {
 		this._warriorType = 'ninja';
 	}
 
-	public setWarriorType(value: string): void
-	{
+	public setWarriorType(value: string): void {
 		this._warriorType = value;
 	}
 
-	public getWarriorType(): string
-	{
+	public getWarriorType(): string {
 		return this._warriorType;
 	}
 }
-
-export default Warrior;

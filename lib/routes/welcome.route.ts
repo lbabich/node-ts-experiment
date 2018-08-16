@@ -1,16 +1,14 @@
-import {Router, Request, Response} from 'express';
+import {Request, Response, Router} from 'express';
 
 export class WelcomeRouter {
 	public router: Router;
 
-	constructor()
-	{
+	constructor() {
 		this.router = Router();
 		this._setPaths();
 	}
 
-	private _setPaths(): void
-	{
+	private _setPaths(): void {
 		this.router.get('/', (req: Request, res: Response) => {
 			res.send({
 				message: 'Hello, there 123!'
@@ -18,7 +16,7 @@ export class WelcomeRouter {
 		});
 
 		this.router.get('/:name', (req: Request, res: Response) => {
-			let {name} = req.params;
+			const {name} = req.params;
 			res.send(`Hello, ${name}`);
 		});
 	}

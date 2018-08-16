@@ -1,45 +1,46 @@
 import * as TypeMoq from 'typemoq';
-import StringHelper from './../string.helper';
-import {expect} from "chai";
-import IValidatorHelper from '../validator.interface';
-import IBob from '../result.interface';
+import {StringHelper} from 'testingMocks/string.helper';
+import {expect} from 'chai';
+import {IValidatorHelper} from 'testingMocks/validator.interface';
+import {IBob} from '../result.interface';
 
 describe('StringHelper', () => {
 	describe('format', () => {
 
-		let validatorHelperMock: TypeMoq.IMock<IValidatorHelper> = TypeMoq.Mock.ofType<IValidatorHelper>();
-		let sut: StringHelper = new StringHelper(validatorHelperMock.object);
-
+		const validatorHelperMock: TypeMoq.IMock<IValidatorHelper> = TypeMoq.Mock.ofType<IValidatorHelper>();
+		const sut: StringHelper = new StringHelper(validatorHelperMock.object);
 
 		it('should return foo', () => {
 			// Setup
-			const mockedBob : IBob = {
-				name:'Bob',
+			const mockedBob: IBob = {
+				name: 'Bob',
 				nestedObj: {
 					myArray: [1, 2, 3]
-				}};
+				}
+			};
 
-			const expected : IBob = {
-				name:'Bob',
+			const expected: IBob = {
+				name: 'Bob',
 				nestedObj: {
 					myArray: [1, 2, 3]
-				}};
+				}
+			};
 
 			// Action
 			validatorHelperMock
-					.setup(x => {
-						x.validate(TypeMoq.It.isValue('hello'))
-					})
-					.returns(() => {
-						return false;
-					});
+				.setup(x => {
+					x.validate(TypeMoq.It.isValue('hello'));
+				})
+				.returns(() => {
+					return false;
+				});
 
 			validatorHelperMock
-					.setup(x => {
-						x.bob()
-					}).returns(()=> mockedBob );
+				.setup(x => {
+					x.bob();
+				}).returns(() => mockedBob);
 
-			let actual = sut.format('Hello');
+			const actual = sut.format('Hello');
 
 			// Assert
 			expect(actual).to.deep.equal(expected);
