@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "predev": "tslint -c ./tslint.json './lib/**/*.ts'",
-    "dev": "ts-node ./lib/server.ts",
-    "dev:watch": "ts-node-dev --respawn --transpileOnly ./lib/server.ts",
+    "predev": "tslint -c ./tslint.json './src/**/*.ts'",
+    "dev": "ts-node ./src/server.ts",
+    "dev:watch": "ts-node-dev --respawn --transpileOnly ./src/**/*.ts",
     "start": "nodemon ./dist/server.js",
-    "prod": "npm run build && npm run start",
-    "test": "mocha --watch-extensions ts -w -r ts-node/register lib/**/*.spec.ts"
+    "prod": "npm run build",
+    "test": "mocha --watch-extensions ts -w -r ts-node/register ./src/**/*.spec.ts"
   },
   "keywords": [],
   "author": "",

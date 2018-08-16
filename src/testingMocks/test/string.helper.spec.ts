@@ -1,7 +1,7 @@
 import * as TypeMoq from 'typemoq';
-import {StringHelper} from 'testingMocks/string.helper';
+import {StringHelper} from './../string.helper';
 import {expect} from 'chai';
-import {IValidatorHelper} from 'testingMocks/validator.interface';
+import {IValidatorHelper} from './../validator.interface';
 import {IBob} from '../result.interface';
 
 describe('StringHelper', () => {

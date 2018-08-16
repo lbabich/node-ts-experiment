@@ -1,0 +1,11 @@
+node_modules
+logs
+npm-debug.log
+dist
+dist.zip
+.tmp
+
+!.idea
+.idea/*
+!.idea/runConfigurations
+
