@@ -1,8 +1,8 @@
+import 'reflect-metadata';
 import {Container} from 'inversify';
 import {Fighter} from './fighter';
 import {TYPES} from './interfaces/types';
-import 'reflect-metadata';
-import Warrior from './warrior';
+import {Warrior} from './warrior';
 
 const myContainer = new Container();
 
@@ -14,4 +14,6 @@ const fighter = myContainer.get<Fighter>(TYPES.Fighter);
 
 warrior.setWarriorType('Samurai');
 
-fighter.greet();
+const message = fighter.greet();
+
+console.info(message);
