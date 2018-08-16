@@ -1,21 +1,3 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "pretty": true,
-    "sourceMap": true,
-    "target": "es6",
-    "outDir": "./dist",
-    "baseUrl": "./src",
-    "types": ["reflect-metadata", "mocha"],
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
-  "include": [
-    "./src/**/*.ts",
-    "./node_modules/@types/mocha/index.d.ts"
-  ],
-  "exclude": [
-    "./node_modules"
-  ]
+  "extends": "./styleguide/tsconfig"
 }

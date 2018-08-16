@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Debug" type="NodeJSConfigurationType" factoryName="Node.js" node-parameters="--inspect --require ts-node/register " path-to-js-file="src/testingDI/battle.service.ts" working-dir="$PROJECT_DIR$">
+  <configuration default="false" name="Debug" type="NodeJSConfigurationType" factoryName="Node.js" node-parameters="--require ts-node/register " path-to-js-file="src/testingDI/battle.service.ts" working-dir="$PROJECT_DIR$">
     <method v="2">
       <option name="NpmBeforeRunTask" enabled="true">
         <package-json value="$PROJECT_DIR$/package.json" />
