@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --p styleguide-reference/tsconfig.json",
+    "build": "tsc",
     "predev": "tslint -c ./styleguide/tslint.json './src/**/*.ts'",
     "dev": "ts-node --project ./styleguide/tsconfig.json ./src/server.ts",
-    "dev:watch": "ts-node-dev --project ./styleguide/tsconfig.json --respawn --transpileOnly ./src/server.ts",
+    "dev:watch": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
     "start": "nodemon ./dist/server.js",
     "prod": "npm run build",
     "test": "mocha --watch-extensions ts -w -r ts-node/register ./src/**/*.spec.ts"

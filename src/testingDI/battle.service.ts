@@ -1,16 +1,20 @@
 import 'reflect-metadata';
+import {TYPES} from './types';
 import {Container} from 'inversify';
-import {Fighter} from './fighter';
-import {TYPES} from './interfaces/types';
+
 import {Warrior} from './warrior';
+import {Fighter} from './fighter';
 
-const myContainer = new Container();
+import {IFighter} from './interfaces/fighter.interface';
+import {IWarrior} from './interfaces/warrior.interface';
 
-myContainer.bind<Fighter>(TYPES.Fighter).to(Fighter);
-myContainer.bind<Warrior>(TYPES.Warrior).to(Warrior).inSingletonScope();
+const container = new Container();
 
-const warrior = myContainer.get<Warrior>(TYPES.Warrior);
-const fighter = myContainer.get<Fighter>(TYPES.Fighter);
+container.bind<IFighter>(TYPES.Fighter).to(Fighter);
+container.bind<IWarrior>(TYPES.Warrior).to(Warrior).inSingletonScope();
+
+const fighter = container.get<IFighter>(TYPES.Fighter);
+const warrior = container.get<IWarrior>(TYPES.Warrior);
 
 warrior.setWarriorType('Samurai');
 
